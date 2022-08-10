@@ -42,22 +42,31 @@ function App() {
 
   const [inputValue, setInputValue] = useState<number>();
 
-  function convertTens(number: number): string {
-    if(number < 10){
-      return ones[number];
-    } else if(number > 10 && number < 20){
-      return teens[number - 10]
-    } else{
-      return tens[Math.floor(number / 10)] + " " + ones[Math.floor(number % 10)]
+  function convertHundreds(number: number): string {
+    if(number > 99){
+      return ones[Math.floor(number / 100)] + " hundred and " + convertTens(number % 100);
+    } else {
+      return convertTens(number);
     }
-    return "";
-  }  
+  }
+
+  function convertTens(number: number): string {
+    if (number < 10) {
+      return ones[number];
+    } else if (number > 10 && number < 20) {
+      return teens[number - 10];
+    } else {
+      return (
+        tens[Math.floor(number / 10)] + "-" + ones[Math.floor(number % 10)]
+      );
+    }
+  }
 
   function convert(number: number): string {
     if (number === 0) {
       return "zero";
     } else {
-      return convertTens(number);
+      return convertHundreds(number);
     }
   }
 
