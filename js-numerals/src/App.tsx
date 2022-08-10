@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div >
-      <input type="text" />
+      <input type="text" onChange={(event) => setInputValue(parseInt(event.target.value))}/>
       <button>convert</button>
     </div>
   );
