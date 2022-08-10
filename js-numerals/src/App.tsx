@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  
 
   const [inputValue, setInputValue] = useState<number>();
 
+  function convert(number: number){
+    console.log(number);
+  }
+
   return (
-    <div >
-      <input type="text" onChange={(event) => setInputValue(parseInt(event.target.value))}/>
-      <button>convert</button>
+    <div>
+      <input
+        type="text"
+        onChange={(event) => setInputValue(parseInt(event.target.value))}
+      />
+      <button onClick={() => convert(inputValue!)}>convert</button>
     </div>
   );
 }
