@@ -2,6 +2,18 @@ import { useState } from "react";
 
 function App() {
   
+  const ones : string[] = [
+    "",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+  ];
 
   const [inputValue, setInputValue] = useState<number>();
 
