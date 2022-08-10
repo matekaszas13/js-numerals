@@ -29,8 +29,14 @@ function App() {
 
   const [inputValue, setInputValue] = useState<number>();
 
-  function convert(number: number) {
-    console.log(ones[number]);
+  
+
+  function convert(number: number): string {
+    if (number === 0) {
+      return "zero";
+    } else {
+      return ones[number];
+    }
   }
 
   return (
