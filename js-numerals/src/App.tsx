@@ -42,11 +42,22 @@ function App() {
 
   const [inputValue, setInputValue] = useState<number>();
 
+  function convertTens(number: number): string {
+    if(number < 10){
+      return ones[number];
+    } else if(number > 10 && number < 20){
+      return teens[number - 10]
+    } else{
+      return tens[Math.floor(number / 10)] + " " + ones[Math.floor(number % 10)]
+    }
+    return "";
+  }  
+
   function convert(number: number): string {
     if (number === 0) {
       return "zero";
     } else {
-      return ones[number];
+      return convertTens(number);
     }
   }
 
@@ -56,7 +67,7 @@ function App() {
         type="text"
         onChange={(event) => setInputValue(parseInt(event.target.value))}
       />
-      <button onClick={() => convert(inputValue!)}>convert</button>
+      <button onClick={() => console.log(convert(inputValue!))}>convert</button>
     </div>
   );
 }
