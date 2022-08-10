@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 function App() {
-  
-  const ones : string[] = [
+  const ones: string[] = [
     "",
     "one",
     "two",
@@ -15,10 +14,23 @@ function App() {
     "nine",
   ];
 
+  const tens: string[] = [
+    "",
+    "",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+  ];
+
   const [inputValue, setInputValue] = useState<number>();
 
-  function convert(number: number){
-    console.log(number);
+  function convert(number: number) {
+    console.log(ones[number]);
   }
 
   return (
