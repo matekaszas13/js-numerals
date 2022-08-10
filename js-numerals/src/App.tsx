@@ -27,9 +27,20 @@ function App() {
     "ninety",
   ];
 
-  const [inputValue, setInputValue] = useState<number>();
+  const teens: string[] = [
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+  ];
 
-  
+  const [inputValue, setInputValue] = useState<number>();
 
   function convert(number: number): string {
     if (number === 0) {
