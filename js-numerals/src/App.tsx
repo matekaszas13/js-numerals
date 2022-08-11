@@ -42,9 +42,23 @@ function App() {
 
   const [inputValue, setInputValue] = useState<number>();
 
+  const [finalResult, setFinalResult] = useState<string>();
+
+  function convertThousands(number: number): string {
+    if (number >= 1000) {
+      return convertHundreds(Math.floor(number / 1000)) + " thousand " + convertHundreds(number % 1000);
+    } else {
+      return convertHundreds(number);
+    }
+  }
+
   function convertHundreds(number: number): string {
-    if(number > 99){
-      return ones[Math.floor(number / 100)] + " hundred and " + convertTens(number % 100);
+    if (number > 99) {
+      return (
+        ones[Math.floor(number / 100)] +
+        " hundred " +
+        convertTens(number % 100)
+      );
     } else {
       return convertTens(number);
     }
@@ -66,7 +80,7 @@ function App() {
     if (number === 0) {
       return "zero";
     } else {
-      return convertHundreds(number);
+      return convertThousands(number);
     }
   }
 
@@ -76,7 +90,8 @@ function App() {
         type="text"
         onChange={(event) => setInputValue(parseInt(event.target.value))}
       />
-      <button onClick={() => console.log(convert(inputValue!))}>convert</button>
+      <button onClick={() => setFinalResult(convert(inputValue!))}>convert</button>
+      <span style={{marginLeft: 30}}>{finalResult}</span>
     </div>
   );
 }
