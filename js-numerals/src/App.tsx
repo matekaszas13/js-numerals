@@ -123,7 +123,6 @@ function App() {
       className="convertBtn"
         data-testid="convert"
         onClick={() => {
-          console.log(!isNaN(+inputValue));
           if (!isNaN(+inputValue)) {
             setFinalResult(addAndWordAfterHundreds());
             addAndWordAfterHundreds();
