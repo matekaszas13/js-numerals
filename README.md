@@ -10,6 +10,6 @@ Clone this repository. You will need **node** and **npm** installed globally on 
 
 ### Installation
 
-After you clone the repository, you only need to run **npm install** in the folder named **js-numerals** and it will install all the dependencies in package json.
+After you clone the repository, you only need to run **npm install** in the folder named **js-numerals**( where for example the **src** folder can be found) and it will install all the dependencies in package json.
 
 After that you only need to run **npm start** and the server will run and open the application in your browser.
