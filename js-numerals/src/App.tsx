@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 function App() {
   const ones: string[] = [
@@ -110,33 +111,43 @@ function App() {
 
   return (
     <div>
-      <input
-        data-testid="input"
-        type="text"
-        value={inputValue}
-        placeholder="Your number goes here"
-        onChange={(event) => setInputValue(event.target.value)}
-      />
-      <button
-        data-testid="convert"
-        onClick={() => {
-          console.log(!isNaN(+inputValue))
-          if(!isNaN(+inputValue)){
-            setFinalResult(addAndWordAfterHundreds());
-          addAndWordAfterHundreds();
-          setInputValue("");
-          } else{
-            alert("Please provide a valid number")
-            setInputValue("");
-          }
-          
-        }}
-      >
-        convert
-      </button>
-      <span data-testid="result" style={{ marginLeft: 30 }}>
-        {finalResult}
-      </span>
+      <div className="header">
+        <h2>
+          Convert your number into it's textual representation between 0-999999
+        </h2>
+      </div>
+
+      <div className="main">
+        <input
+          className="convertInput"
+          data-testid="input"
+          type="text"
+          value={inputValue}
+          placeholder="Your number goes here"
+          onChange={(event) => setInputValue(event.target.value)}
+        />
+        <button
+          className="convertBtn"
+          data-testid="convert"
+          onClick={() => {
+            if (!isNaN(+inputValue)) {
+              setFinalResult(addAndWordAfterHundreds());
+              addAndWordAfterHundreds();
+              setInputValue("");
+            } else {
+              alert("Please provide a valid number");
+              setInputValue("");
+            }
+          }}
+        >
+          convert
+        </button>
+      </div>
+      <div className="result">
+        <span data-testid="result" style={{ marginLeft: 30 }}>
+          {finalResult}
+        </span>
+      </div>
     </div>
   );
 }

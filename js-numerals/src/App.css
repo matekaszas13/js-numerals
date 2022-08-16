@@ -1,0 +1,64 @@
+.convertBtn {
+  width: 8em;
+  height: 1.8rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 0.2rem;
+  background-color: #5783db;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.convertBtn:hover {
+  background-color: #4681f4;
+}
+
+.convertInput {
+  padding: 0.8rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-bottom: 0.1rem solid rgb(172, 172, 172);
+  box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.06);
+}
+
+.main {
+  max-width: 20%;
+  margin: auto;
+}
+
+.header {
+  max-width: 40%;
+  margin: auto;
+}
+
+.header {
+  font-size: 1rem;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #727779, #a7a5a8);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.result {
+  max-width: 80%;
+  margin: auto;
+}
+
+.result {
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: .015rem solid rgba(0, 0, 0, 0.06);
+    border-radius: .4rem;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.result, .header{
+    display: flex;
+    justify-content: center;
+}
