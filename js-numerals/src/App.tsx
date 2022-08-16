@@ -120,9 +120,16 @@ function App() {
       <button
         data-testid="convert"
         onClick={() => {
-          setFinalResult(addAndWordAfterHundreds());
+          console.log(!isNaN(+inputValue))
+          if(!isNaN(+inputValue)){
+            setFinalResult(addAndWordAfterHundreds());
           addAndWordAfterHundreds();
           setInputValue("");
+          } else{
+            alert("Please provide a valid number")
+            setInputValue("");
+          }
+          
         }}
       >
         convert
