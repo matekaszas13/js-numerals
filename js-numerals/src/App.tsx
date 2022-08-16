@@ -130,12 +130,12 @@ function App() {
           className="convertBtn"
           data-testid="convert"
           onClick={() => {
-            if (!isNaN(+inputValue)) {
+            if (!isNaN(+inputValue) && parseInt(inputValue) < 1000000) {
               setFinalResult(addAndWordAfterHundreds());
               addAndWordAfterHundreds();
               setInputValue("");
             } else {
-              alert("Please provide a valid number");
+              alert("Please provide a valid number between 0 and 999999");
               setInputValue("");
             }
           }}
