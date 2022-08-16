@@ -40,7 +40,7 @@ function App() {
     "nineteen",
   ];
 
-  const [inputValue, setInputValue] = useState<number>();
+  const [inputValue, setInputValue] = useState<string>("");
 
   const [finalResult, setFinalResult] = useState<string>("");
 
@@ -89,9 +89,12 @@ function App() {
   }
 
   function addAndWordAfterHundreds(): string {
-    let strArr: string[] = convert(inputValue!).split(" ");
+    const inputValueAsNumber: number = parseInt(inputValue!);
+    let strArr: string[] = convert(inputValueAsNumber).split(" ");
     let result = strArr.filter((e) => e);
-    result.splice(result.length - 1, 0, "and");
+    if (inputValueAsNumber > 100 && inputValueAsNumber % 2 !== 0) {
+      result.splice(result.length - 1, 0, "and");
+    }
     for (let index: number = 0; index < result.length; index++) {
       if (
         result[index] === "hundred" &&
@@ -102,25 +105,38 @@ function App() {
         result.splice(index + 1, 0, "and");
       }
     }
-
     return result.join(" ");
   }
 
   return (
     <div>
       <input
+        data-testid="input"
         type="text"
-        onChange={(event) => setInputValue(parseInt(event.target.value))}
+        value={inputValue}
+        placeholder="Your number goes here"
+        onChange={(event) => setInputValue(event.target.value)}
       />
       <button
+        data-testid="convert"
         onClick={() => {
-          setFinalResult(addAndWordAfterHundreds());
+          console.log(!isNaN(+inputValue))
+          if(!isNaN(+inputValue)){
+            setFinalResult(addAndWordAfterHundreds());
           addAndWordAfterHundreds();
+          setInputValue("");
+          } else{
+            alert("Please provide a valid number")
+            setInputValue("");
+          }
+          
         }}
       >
         convert
       </button>
-      <span style={{ marginLeft: 30 }}>{finalResult}</span>
+      <span data-testid="result" style={{ marginLeft: 30 }}>
+        {finalResult}
+      </span>
     </div>
   );
 }
